@@ -1,4 +1,4 @@
-# python extract_segments.py wav_my_music.wav 0:30,1:45 2:00,3:30
+# python wav_extract_segments.py wav_my_music.wav 0:30,1:45 2:00,3:30
 
 import wave
 import argparse
@@ -34,7 +34,6 @@ def extract_segment(input_file, output_file, start_time, end_time, params):
     start_frame = time_to_frames(start_time, framerate)
     end_frame = time_to_frames(end_time, framerate)
 
-
     with wave.open(input_file, 'rb') as wav_file:
         wav_file.setpos(start_frame)
         frames = wav_file.readframes(end_frame - start_frame)
@@ -65,10 +64,11 @@ if __name__ == "__main__":
         start_time, end_time = segment.split(',')
         start = start_time.replace(':', '_')
         end = end_time.replace(':', '_')
+        input_file = args.input_file
 
-        filename = get_filename_without_extension(args.input_file)
+        filename = get_filename_without_extension(input_file)
         # Set file name for the segment
         output_file = f'{filename}-extract_{start}__{end}.wav'
-        output_file = get_output_path(filename, output_file)
+        output_file = get_output_path(input_file, output_file)
 
         extract_segment(args.input_file, output_file, start_time, end_time, params)
