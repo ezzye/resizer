@@ -6,11 +6,13 @@ authors = ["ezzye <ezzy.elliott@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = ">=3.9,<4"
 pillow = "^10.2.0"
 wave = "^0.0.2"
 pymupdf = "^1.23.16"
 pytesseract = "^0.3.10"
+networkx = "^3.2.1"
+matplotlib = "^3.8.2"
 
 
 [build-system]
