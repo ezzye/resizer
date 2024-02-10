@@ -5,6 +5,7 @@ import argparse
 from PIL import Image
 import os
 
+
 def resize_image(img_path, scale_percent):
     # Load the image from the given file path
     img = Image.open(img_path)
@@ -30,6 +31,7 @@ def resize_image(img_path, scale_percent):
     # Return the path of the resized image
     return resized_img_path
 
+
 def main():
     parser = argparse.ArgumentParser(description="Resize an image by a specified percentage")
     parser.add_argument('image_path', type=str, help="Path to the image file to resize")
@@ -38,6 +40,7 @@ def main():
 
     resized_image_path = resize_image(args.image_path, args.scale_percent)
     print("Resized image saved to:", resized_image_path)
+
 
 if __name__ == "__main__":
     main()

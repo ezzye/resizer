@@ -1,8 +1,9 @@
-# python image_resizer.py "/Users/ellioe03/Downloads/alchemyrefiner_alchemymagic_0_cdc896ae-ace1-4b45-8496-276920d4c6a5_0.jpg"
+# python image_resizer.py "/Users/ellioe03/Downloads/second_spotify"
 
 
 import argparse
 from PIL import Image
+import os
 
 
 def resize_image_to_4500px(img_path):
@@ -30,13 +31,24 @@ def resize_image_to_4500px(img_path):
     return resized_img_path
 
 
+def resize_images_in_directory(directory_path):
+    # List all files in the given directory
+    for filename in os.listdir(directory_path):
+        # Construct full file path
+        file_path = os.path.join(directory_path, filename)
+        # Check if it's a file and has a JPEG or PNG extension
+        if os.path.isfile(file_path) and file_path.lower().endswith(('.jpg', '.jpeg', '.png')):
+            print(f"Resizing {filename}...")
+            resized_image_path = resize_image_to_4500px(file_path)
+            print("Resized image saved to:", resized_image_path)
+
+
 def main():
-    parser = argparse.ArgumentParser(description="Resize an image to be at least 4500x4500 pixels")
-    parser.add_argument('image_path', type=str, help="Path to the image file to resize")
+    parser = argparse.ArgumentParser(description="Resize all images in a directory to 4500x4500 pixels")
+    parser.add_argument('directory_path', type=str, help="Path to the directory containing image files")
     args = parser.parse_args()
 
-    resized_image_path = resize_image_to_4500px(args.image_path)
-    print("Resized image saved to:", resized_image_path)
+    resize_images_in_directory(args.directory_path)
 
 
 if __name__ == "__main__":
