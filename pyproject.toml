@@ -13,6 +13,7 @@ pymupdf = "^1.23.16"
 pytesseract = "^0.3.10"
 networkx = "^3.2.1"
 matplotlib = "^3.8.2"
+pydub = "^0.25.1"
 
 
 [build-system]
