@@ -14,6 +14,7 @@ pytesseract = "^0.3.10"
 networkx = "^3.2.1"
 matplotlib = "^3.8.2"
 pydub = "^0.25.1"
+moviepy = "^1.0.3"
 
 
 [build-system]
