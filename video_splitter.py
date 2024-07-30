@@ -53,7 +53,7 @@ if __name__ == "__main__":
     # Create an argument parser
     parser = argparse.ArgumentParser(description="Split videos in a folder into segments.")
     parser.add_argument("input_folder", help="Path to the input folder containing video files.")
-    parser.add_argument("segment_duration", type=int, help="Duration of each segment in seconds.")
+    parser.add_argument("segment_duration", type=float, help="Duration of each segment in seconds.")
     parser.add_argument("output_dir", help="Path to the output directory.")
 
     # Parse the command-line arguments

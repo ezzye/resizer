@@ -1,4 +1,5 @@
 # python image_resizer.py "/Users/ellioe03/Downloads/second_spotify"
+# python image_resizer.py "/Users/errolelliott/IdeaProjects/resizer/soundcloud_images"
 
 
 import argparse
